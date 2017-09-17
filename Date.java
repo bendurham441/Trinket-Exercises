@@ -1,3 +1,8 @@
+/* Date.java
+ * Ben Durham, AP Comp Sci A
+ * Chapter 2, Exercise 2
+ */
+
 public class Date {
 	
 	public static void main (String[] args) {

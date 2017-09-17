@@ -1,4 +1,7 @@
-
+/* Time.java
+ * Ben Durham, AP Comp Sci A
+ * Chapter 2, Exercise 3
+ */
 
 public class Time {
 
@@ -15,9 +18,9 @@ public class Time {
 		return time;
 	}
 
-	public static int[] timeElapsed(int[] start, int[] end) {
-		int start_seconds = hmsToS(start[0], start[1], start[2]);
-		int end_seconds = hmsToS(end[0], end[1], end[2]);
+	public static int[] timeElapsed(int[] start, int[] end) {		// finds the difference between two times
+		int start_seconds = hmsToSecs(start[0], start[1], start[2]);
+		int end_seconds = hmsToSecs(end[0], end[1], end[2]);
 		int elapsed = end_seconds - start_seconds;
 		int[] elapsed_hms = secsToHms(elapsed);
 		return elapsed_hms;
@@ -27,6 +30,7 @@ public class Time {
 		int hour = 16;								// time at the beginning of this exercise
 		int min = 40;
 		int sec = 15;
+		int[] past_time = new int[] {hour, min, sec};
 
 		int since_midnight = hmsToSecs(hour, min, sec);				// the number of seconds since midnight
 		int seconds_left = (24 * 60 * 60) - since_midnight;			// the number of seconds left in the day	
@@ -39,15 +43,11 @@ public class Time {
 		int cur_hour = 16;							// time at the end of this exercise
 		int cur_min = 48;
 		int cur_sec = 45;
+		int[] cur_time = new int[] {cur_hour, cur_min, cur_sec};
 
-		int cur_seconds = hmsToSecs(cur_hour, cur_min, cur_sec);
-		int elapsed = cur_seconds - since_midnight;				// the time elapesd since the beginning of this exercise
+		int[] elapsed = timeElapsed(past_time, cur_time);
 		
-		int[] elapsed_hms = secsToHms(elapsed);
-
-		int[] elapsed = timeElapsed([hour, min, sec],  [cur_hour, cur_min, cur_sec]);
-		
-		System.out.println("Time elapsed since exercise started: " + elapsed_hms[0] + ":" + elapsed_hms[1] + ":" + elapsed_hms[2]);
+		System.out.println("Time elapsed since exercise started: " + elapsed[0] + ":" + elapsed[1] + ":" + elapsed[2]);
 
 	}
 }

@@ -1,4 +1,9 @@
-public class ch1Ex2 {	// I know that this is not a good name, but it is just to let you know what it is, for now
+/* Hello.java
+ * Ben Durham, AP Comp Sci A
+ * Chapter 1, Exercise 2
+ */
+
+public class ch1Ex2 {
 
 	public static void main (String[] args) {
 		System.out.println("Hello, World!");
