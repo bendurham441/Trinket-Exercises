@@ -4,9 +4,12 @@
  */
 
 public class Time {
-
+	public static final HOURS_PER_DAY = 24;
+	public static final MINS_PER_HOUR = 60;
+	public static final SECS_PER_MIN = 60;
+	
 	public static int hmsToSecs(int h, int m, int s) {	// converts hours minutes seconds to seconds
-		int seconds = (h * 60 * 60) + (m * 60) + s;
+		int seconds = (h * MINS_PER_HOUR * SECS_PER_MINUTE) + (m * SECS_PER_MINUTE) + s;
 		return seconds;
 	}
 
@@ -33,8 +36,8 @@ public class Time {
 		int[] past_time = new int[] {hour, min, sec};
 
 		int since_midnight = hmsToSecs(hour, min, sec);				// the number of seconds since midnight
-		int seconds_left = (24 * 60 * 60) - since_midnight;			// the number of seconds left in the day	
-		double percent_day = (double) since_midnight / (24 * 60 * 60) * 100;
+		int seconds_left = (HOURS_PER_DAY * MINS_PER_HOUR * SECS_PER_MIN) - since_midnight;			// the number of seconds left in the day	
+		double percent_day = (double) since_midnight / (HOURS_PER_DAY * MINS_PER_DAY * SECS_PER_MIN) * 100;
 		
 		System.out.println("Seconds since midnight: " + since_midnight);
 		System.out.println("Seconds left in day: " + seconds_left);
