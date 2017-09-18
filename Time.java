@@ -35,7 +35,7 @@ public class Time {
 		int sec = 15;
 		int[] past_time = new int[] {hour, min, sec};
 
-		int since_midnight = hmsToSecs(hour, min, sec);				// the number of seconds since midnight
+		int since_midnight = hmsToSecs(hour, min, sec);								// the number of seconds since midnight
 		int seconds_left = (HOURS_PER_DAY * MINS_PER_HOUR * SECS_PER_MIN) - since_midnight;			// the number of seconds left in the day	
 		double percent_day = (double) since_midnight / (HOURS_PER_DAY * MINS_PER_DAY * SECS_PER_MIN) * 100;
 		
