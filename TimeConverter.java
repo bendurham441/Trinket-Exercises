@@ -3,6 +3,7 @@
  * @author Ben Durham
  * @version 20170923
  * Converts an inputted number of seconds to that same amount of time in hours, minutes and seconds
+ * Chapter 3, Exercise 3
  */
 
 import java.util.Scanner;
