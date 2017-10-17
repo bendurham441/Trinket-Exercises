@@ -1,0 +1,19 @@
+Chapter 5 Exercise 2
+
+I didn't know exactly how to handle this, so I figured this was the best way to do it
+
+Part 1-2:
+1 zippo("rattle", 13); in main
+2 if (flag < 0) evaluates to false in zippo
+3 System.out.println("ik"); in zippo
+4 baffle(quince); in zippo
+5 System.out.println(blimp); in baffle
+6 zippo("ping", -5); in baffle
+7 if (flag < 0) evaluates to true in zippo
+8 System.out.printn(quince + " zoop");
+
+Part 3:
+The blimp parameter of baffle is "rattle"
+
+Part 4:
+The output of the program is "ikrattleping zoop"

@@ -1,0 +1,5 @@
+Exercise 3:
+
+I don't understand how I can make a stack diagram when no variables declared in the example
+
+The output would be No, I wug.You wugga wug.I wug.
