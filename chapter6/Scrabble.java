@@ -33,7 +33,6 @@ public class Scrabble {
 				if (word.charAt(i) == tiles.charAt(i2)) {
 					count += 1;
 					tiles = tiles.replaceFirst(String.valueOf(tiles.charAt(i2)), "");
-					
 				}
 			}
 		}
