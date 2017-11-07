@@ -40,4 +40,8 @@ public class DoubloonCheck {
     if (isDoubloon(input)) System.out.println("That is a doubloon.");
     else System.out.println("That isn't a doubloon.");
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ea76cb64b226ea68cddb3552929f7a12f9045ad2
