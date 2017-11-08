@@ -1,5 +1,5 @@
 /**
- * Maximun.java
+ * Maximum.java
  * @author Ben Durham
  * @version 20171107
  * Chapter 7, Exercise 3
