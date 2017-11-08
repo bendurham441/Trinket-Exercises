@@ -5,6 +5,8 @@
  * Chapter 7, Exercise 3
  */
 
+import java.util.Scanner;
+
 public class Maximum {
 	/**
 	 * Returns the index of the largest number in an array of integers
@@ -28,10 +30,26 @@ public class Maximum {
 	}
 
 	public static void main(String[] args) {
-
-		int[] test = {10, 3, 5, 6};
-
-		System.out.println(indexOfMax(test));
+		// Creates a new instance of the Scanner object
+		Scanner kbd = new Scanner(System.in);
 		
+		// Introduces the user to the program
+		System.out.println("Welcome to Maximum.java! This program "
+				+ "returns the index of the maximum number "
+				+ "in a given array.");
+
+		// Prompts the user for how many numbers they want to check
+		System.out.print("How many numbers: ");
+		int[] input = new int[kbd.nextInt()];
+
+		// Populates the array
+		for (int i = 0; i < input.length; i++) {
+			System.out.print("Enter a number: ");
+			input[i] = kbd.nextInt();
+		}
+
+		// Prints the result
+		System.out.printf("%d is the index of the maximum number.\n",
+				indexOfMax(input));
 	}
 }
