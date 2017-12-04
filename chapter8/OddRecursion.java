@@ -4,6 +4,7 @@
  * @version 20171128
  * Uses recursive methods to get the sum of odd numbers
  * I also messed around some with exceptions in this program, as you will see
+ * Chapter 8 Exercise 3
  */
 
 public class OddRecursion {

@@ -3,6 +3,7 @@
  * @author Ben Durham
  * @version 20171128
  * Demonstrates the Ackerman function as a recursively defined method in java
+ * Chapter 8 Exercise 4
  */
 
 public class Ackerman {

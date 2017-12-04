@@ -3,6 +3,7 @@
  * @author Ben Durham
  * @version 20171128
  * Prints the song "Bottles of Sasparilla on the wall" using a recursive method
+ * Chapter 8 Exercise 1
  */
 
 public class Song {

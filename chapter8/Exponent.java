@@ -3,6 +3,7 @@
  * @author Ben Durham
  * @version 20171128
  * Recursively calculates exponents
+ * Chapter 8 Exercise 5
  */
 
 public class Exponent {
