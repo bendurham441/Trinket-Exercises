@@ -42,6 +42,11 @@ public class Recurse {
 		}
 	}
 	
+	/**
+	 * I know that this does not work, but I am struggling to conceptualize how I could write this recursively
+	 * The same goes for the reverseString method
+	 *
+	 */
 	public static void printBackward(String s, int len) {
 		if (len == 1) System.out.println(first(s));
 		else {
