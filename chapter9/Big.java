@@ -18,10 +18,8 @@ public class Big {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(factorial(4));
-
-		for (int i = 0; i < 9999; i++) {
-			System.out.printf("%d: %10d\n", i, factorial(i));
-		}
+		BigInteger bigFactorial = factorial(999999);
+		System.out.println(bigFactorial);
+		System.out.println(bigFactorial.toString().length());
 	}
 }
