@@ -5,6 +5,10 @@
  * Represents a card
  */
 
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Card {
     public static final String[] SUITS = {"Clubs", "Diamonds", "Hearts",
         "Spades"};
@@ -77,34 +81,28 @@ public class Card {
         return -1;
     }
     
-    public static void printDeck(Card[] cards) {
+    public static void printDeck(ArrayList<Card> cards) {
         for (Card card: cards) {
             System.out.println(card);
         }
     }
     
-    public static Card[] makeDeck() {
-        Card[] cards = new Card[52];
-        int index = 0;
-        for (int suit = 0; suit < 4; suit++) {
-            for (int rank = 0; rank < 14; rank++) {
-                cards[index] = new Card(suit, rank);
-                index++;
+    public static ArrayList<Card> makeDeck() {
+        ArrayList<Card> cards = new ArrayList<Card>(52);
+        for (int suit = 0; suit <= 3; suit++) {
+            for (int rank = 1; rank <= 13; rank++) {
+                cards.add(new Card(rank, suit));
             }
         }
         return cards;
     }
     
-    public static void shuffle(Card[] cards) {
-        
-    }
-    
-    public static Card[] makeDeckOne(Card s) {
-        Card[] cards = new Card[52];
-        for (int i = 0; i < 52; i++) {
-            cards[i] = s;
-        }
-        return cards;
+    public static void shuffle(ArrayList<Card> cards) {
+        Random rand = new Random();
+	for (int i = cards.size() - 1; i > 0; i--) {
+		int index = rand.nextInt(51);
+		Collections.swap(cards, index, i);
+	}
     }
     
     public static int[] suitHist(Card[] cards) {
