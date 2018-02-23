@@ -32,16 +32,22 @@ public class Card {
     }
     
     public int compareTo(Card that) {
+        if (this.rank == 1 && that.rank != 1) {
+            return 1;
+        }
+        if (that.rank == 1 && this.rank != 1) {
+            return -1;
+        }
+        if (this.rank < that.rank) {
+            return -1;
+        }
+        if (this.rank > that.rank) {
+            return 1;
+        }
         if (this.suit < that.suit) {
             return -1;
         }
         if (this.suit > that.suit) {
-            return 1;
-        } 
-        if (that.rank == 1 || this.rank < that.rank) {
-            return -1;
-        }
-        if (this.rank == 1 || this.rank > that.rank) {
             return 1;
         }
         return 0;
@@ -94,10 +100,7 @@ public class Card {
         }
         return cards;
     }
-    
-    public static void shuffle(Card[] cards) {
-        
-    }
+
     
     public static Card[] makeDeckOne(Card s) {
         Card[] cards = new Card[52];
@@ -113,5 +116,8 @@ public class Card {
             hist[cards[i].suit]++;
         }
         return hist;
+    }
+    
+    public static void main(String[] args) {
     }
 }

@@ -74,11 +74,11 @@ public class War {
 		}
 	}
 
-	// Informs the user which player won the game
+    // Informs the user which player won the game
 	if (player_one.size() > 0) {
-		System.out.println("Player 1 wins the game.");
+	   System.out.println("Player 1 wins the game.");
 	} else {
-		System.out.println("Player 2 wins the game.");
+	   System.out.println("Player 2 wins the game.");
 	}
     }
 }
