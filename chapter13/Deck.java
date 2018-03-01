@@ -78,43 +78,24 @@ public class Deck {
         int len = d1.cards.size() + d2.cards.size();
         Deck res = new Deck(len);
         
-        int i = 0;
-        int j = 0;
+        int i = d1.cards.size() - 1;
+        int j = d2.cards.size() - 1;
         
-        for (int k = 0; k < len; k++) {
-            if (d2.cards.size() - j == 0) {
+        for (int k = 0; k < len / 2; k++) {
+            if (d1.cards.get(i).compareTo(d2.cards.get(j)) > 0) {
                 res.cards.add(d1.cards.get(i));
-                i++;
-            } else if (d1.cards.size() - i == 0) {
+                i--;
+            } else if (d1.cards.get(i).compareTo(d2.cards.get(j)) < 0) {
                 res.cards.add(d2.cards.get(j));
-                j++;
+                j--;
             } else {
-                if (d1.cards.get(i).compareTo(d2.cards.get(j)) > 0) {
-                    res.cards.add(d2.cards.get(j));
-                    j++;
-                } else if (d1.cards.get(i).compareTo(d2.cards.get(j)) < 0) {
-                    res.cards.add(d1.cards.get(i));
-                    i++;
-                } else {
-                    res.cards.add(d2.cards.get(0));
-                    res.cards.add(d1.cards.get(0));
-                    i++;
-                    j++;
-                    k ++;
-                }
+                res.cards.add(d1.cards.get(i));
+                res.cards.add(d2.cards.get(j));
+                i--;
+                j--;
             }
         }
         return res;
-    }
-    
-    public void insertionSort() {
-        for (int i = 0; i < this.cards.size() - 1; i++) {
-            for (int j = i - 1; j > 0; j--) {
-                if (this.cards.get(j).compareTo(this.cards.get(i)) == 1) {
-                    swapCards(i, j);
-                }
-            }
-        }
     }
     
     public Deck almostMergeSort() {
@@ -142,8 +123,19 @@ public class Deck {
                 d.cards.add(card);
             }
         }
+        
+        Deck d2 = new Deck(52);
+        for (int s = 0; s < 4; s++) {
+            for (int r = 1; r < 14; r++) {
+                Card card = new Card(r, s);
+                d2.cards.add(card);
+            }
+        }
         d.shuffle();
-        d.insertionSort();
-        d.print();
+        d2.shuffle();
+        d.selectionSort();
+        d2.selectionSort();
+        Deck d3 = merge(d, d2);
+        d3.print();
     }
 }
