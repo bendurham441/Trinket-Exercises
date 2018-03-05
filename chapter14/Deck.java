@@ -6,6 +6,7 @@
  */
 
 public class Deck extends CardCollection {
+    
     public Deck(String label) {
         super(label);
         for (int suit = 0; suit < 4; suit++) {

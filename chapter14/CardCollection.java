@@ -6,14 +6,20 @@
  */
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CardCollection {
+    
     private String label;
     private ArrayList<Card> cards;
     
     public CardCollection(String label) {
         this.label = label;
         this.cards = new ArrayList<Card>();
+    }
+    
+    public String getLabel() {
+        return this.label;
     }
     
     public void addCard(Card card) {
@@ -52,10 +58,22 @@ public class CardCollection {
     }
     
     public void shuffle() {
-        Random rand = new Random();
-        for (int i = 0; i < size(); i++) {
+        Random random = new Random();
+        for (int i = this.size() - 1; i > 0; i--) {
             int j = random.nextInt(i);
             swapCards(i, j);
         }
+    }
+    
+    public void deal(CardCollection that, int n) {
+        for (int i = 0; i < n; i++) {
+            Card card = popCard();
+            that.addCard(card);
+        }
+    }
+    
+    public void dealAll(CardCollection that) {
+        int n = size();
+        deal(that, n);
     }
 }
