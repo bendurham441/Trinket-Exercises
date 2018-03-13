@@ -9,6 +9,7 @@ public class Player {
     
     private String name;
     private Hand hand;
+    private int points;
     
     public Player(String name) {
         this.name = name;
@@ -23,9 +24,22 @@ public class Player {
         return name;
     }
     
+    public int getPoints() {
+        return points;
+    }
+    
+    private Card getEight() {
+        for (int i = 0; i < hand.size(); i++) {
+            if (hand.getCard(i).getRank() == 8) return hand.popCard(i);
+        }
+        return null;
+    }
+    
     public Card play(Eights eights, Card prev) {
+        Card eight = getEight();
         Card card = searchForMatch(prev);
-        if (card == null) {
+        if (eight != null) return eight;
+        else if (card == null) {
             card = drawForMatch(eights, prev);
         }
         return card;
@@ -79,5 +93,6 @@ public class Player {
             }            
         }
         System.out.println(getName() + ": " + points);
+        this.points = points;
     }
 }

@@ -6,18 +6,17 @@
  */
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Eights {
     
-    private Player one;
-    private Player two;
+    private ArrayList<Player> players;
     private Hand drawPile;
     private Hand discardPile;
     private Scanner in;
     
-    public Eights(Player one, Player two) {
-        this.one = one;
-        this.two = two;
+    public Eights(ArrayList<Player> players) {
+        this.players = players;
         
         drawPile = new Hand("draw");
         discardPile = new Hand("discard");
@@ -30,14 +29,19 @@ public class Eights {
         
         drawPile.shuffle();
         
-        drawPile.deal(one.getHand(), 5);
-        drawPile.deal(two.getHand(), 5);
+        for (Player p : players) {
+            drawPile.deal(p.getHand(), 5);
+        }
         drawPile.deal(discardPile, 1);
         
     }
     
     public boolean isDone() {
-        return one.getHand().empty() || two.getHand().empty();
+        int emptyDecks = 0;
+        for (Player p : players) {
+            if (p.getHand().empty()) return true;
+        }
+        return false;
     }
     
     public void reshuffle() {
@@ -55,13 +59,17 @@ public class Eights {
     }
     
     public Player nextPlayer(Player current) {
-        if (current == one) return two;
-        else return one;
+        int cur_index = players.indexOf(current);
+        if (cur_index == players.size() - 1) cur_index = 0;
+        else cur_index++;
+        return players.get(cur_index);
     }
     
     public void displayState() {
-        one.getHand().display();
-        two.getHand().display();
+        for (Player p : players) {
+            p.getHand().display();
+        }
+
         discardPile.display();
         System.out.printf("There are %d cards left in the draw pile.\n", drawPile.size());
     }
@@ -75,8 +83,8 @@ public class Eights {
         System.out.println();
     }
     
-    public void playGame() {
-        Player player = one;
+    public Player playGame() {
+        Player player = players.get(0);
     
         // keep playing until there is a winner
         while (!isDone()) {
@@ -87,7 +95,13 @@ public class Eights {
         }
         
         // display the final score
-        one.displayScore();
-        two.displayScore();
+        for (Player p : players) {
+            p.displayScore();
+        }
+        
+        for (int i = 1; i < players.size(); i++) {
+            if (players.get(i).getPoints() == 0) return players.get(i);
+        }
+        return players.get(0);
     }
 }
