@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class War {
     public static void main(String[] args) {
 	// Introduces the user to the program
-        System.out.println("Welcome to war (between two computers).");
+    System.out.println("Welcome to war (between two computers).");
 	
 	// Creates an ArrayList to serve as a deck for each of the players
 	ArrayList<Card> player_one = new ArrayList<Card>(52);

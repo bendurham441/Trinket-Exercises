@@ -5,7 +5,6 @@
  * Represents a game of Crazy Eights
  */
 
-import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Eights {
@@ -13,7 +12,6 @@ public class Eights {
     private ArrayList<Player> players;
     private Hand drawPile;
     private Hand discardPile;
-    private Scanner in;
     
     public Eights(ArrayList<Player> players) {
         this.players = players;
