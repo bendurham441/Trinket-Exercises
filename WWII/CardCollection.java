@@ -33,12 +33,6 @@ public class CardCollection {
         cards.add(card);
     }
     
-    public void add(CardCollection cards) {
-        for (Card c : cards.cards) {
-            this.cards.add(c);
-        }
-    }
-    
     public Card popCard(int i) {
         Card c = get(i);
         remove(i);
@@ -74,12 +68,5 @@ public class CardCollection {
         for (int i = 0; i < n; i++) {
             c.add(this.popCard(0));
         }
-    }
-    
-    public static void main(String[] args) {
-        CardCollection adder = new CardCollection("test");
-        adder.add(new Card(1, 0));
-        CardCollection addee = new CardCollection("test");
-        addee.add(adder);
     }
 }
